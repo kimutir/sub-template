@@ -1866,8 +1866,12 @@
 				try {
 					const cmfaName = await getLatestReleaseName(cmfa_api);
 					const cmfa = document.getElementById('cmfa');
-					let cmfa_version = cmfaName.substring(1);
-					cmfa.href = `https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/${cmfaName}/cmfa-${cmfa_version}-meta-universal-release.apk`;
+					if (cmfa) {
+						let cmfa_version = cmfaName.substring(1);
+						cmfa.href = `https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/${cmfaName}/cmfa-${cmfa_version}-meta-universal-release.apk`;
+					} else {
+						console.warn('Element with id "cmfa" not found');
+					}
 				} 
 				catch (error) {
 					console.error('Failed to update link:', error);
@@ -1879,8 +1883,12 @@
 				try {
 					const clashvergerevName = await getLatestReleaseName(clashvergerev_api);
 					const clashvergerev = document.getElementById('clashvergerev');
-					let clashvergerev_version = clashvergerevName.substring(1);
-					clashvergerev.href = `https://github.com/clash-verge-rev/clash-verge-rev/releases/download/${clashvergerevName}/Clash.Verge_${clashvergerev_version}_x64-setup.exe`;
+					if (clashvergerev) {
+						let clashvergerev_version = clashvergerevName.substring(1);
+						clashvergerev.href = `https://github.com/clash-verge-rev/clash-verge-rev/releases/download/${clashvergerevName}/Clash.Verge_${clashvergerev_version}_x64-setup.exe`;
+					} else {
+						console.warn('Element with id "clashvergerev" not found');
+					}
 				} 
 				catch (error) {
 					console.error('Failed to update link:', error);
