@@ -218,6 +218,7 @@
 			const serviceName = "sub";
 			
 			function setHrefs() {
+				console.log("setting deeplinks")
 				// Apps deeplinks
 				document.getElementById("href-ios-hiddify").href = `hiddify://import/${linkFull}`;
 				document.getElementById("href-ios-streisand").href = `streisand://import/${linkFull}`;
@@ -226,7 +227,7 @@
 				document.getElementById("href-ios-shadowrocket").href = `sub://${link64}`;
 				document.getElementById("href-ios-singbox").href = `sing-box://import-remote-profile?url=${linkFull}#` + serviceName;
 				document.getElementById("href-ios-happ").href = `happ://add/${linkFull}`;
-				document.getElementById("href-ios-v2raytun").href = `v2raytun://import/${linkFull}#` + serviceName;
+				// document.getElementById("href-ios-v2raytun").href = `v2raytun://import/${linkFull}#` + serviceName;
 				document.getElementById("href-ios-v2raytun-alt").href = `v2raytun://import/${linkFull}#` + serviceName;
 				document.getElementById("href-android-hiddify").href = `hiddify://import/${linkFull}`;
 				document.getElementById("href-android-v2rayng").href = `v2rayng://install-config?url=${linkFull}&name=` + serviceName;
@@ -632,7 +633,7 @@
 										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHapp" aria-expanded="false" aria-controls="collapseOsIosHapp">
 											<svg class="my-icon"><use href="#v2rayng"></use></svg>
 											<span class="d-block w-100 text-center">
-												V2RayTun56 🔥
+												V2RayTun57 🔥
 											</span>
 										</button>
 									</h2>
