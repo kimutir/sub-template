@@ -220,35 +220,43 @@
 			function setHrefs() {
 				console.log("setting deeplinks")
 				// Apps deeplinks
-				document.getElementById("href-ios-hiddify").href = `hiddify://import/${linkFull}`;
-				document.getElementById("href-ios-streisand").href = `streisand://import/${linkFull}`;
-				document.getElementById("href-ios-foxray").href = `foxray://yiguo.dev/sub/add/?url=${link64}#` + serviceName;
-				document.getElementById("href-ios-v2box").href = `v2box://install-sub?url=${linkFull}&name=` + serviceName;
-				document.getElementById("href-ios-shadowrocket").href = `sub://${link64}`;
-				document.getElementById("href-ios-singbox").href = `sing-box://import-remote-profile?url=${linkFull}#` + serviceName;
-				document.getElementById("href-ios-happ").href = `happ://add/${linkFull}`;
-				document.getElementById("href-ios-v2raytun").href = `v2raytun://import/${linkFull}#` + serviceName;
-				// document.getElementById("href-ios-v2raytun-alt").href = `v2raytun://import/${linkFull}#` + serviceName;
-				document.getElementById("href-android-hiddify").href = `hiddify://import/${linkFull}`;
-				document.getElementById("href-android-v2rayng").href = `v2rayng://install-config?url=${linkFull}&name=` + serviceName;
-				document.getElementById("href-android-v2raytun").href = `v2raytun://import/${linkFull}#` + serviceName;
-				document.getElementById("href-android-cmfa").href = `clash://install-config?url${linkFull}&name=` + serviceName;
-				document.getElementById("href-android-singbox").href = `sing-box://import-remote-profile?url=${linkFull}#` + serviceName;
-				document.getElementById("href-android-happ").href = `happ://add/${linkFull}`;
-				document.getElementById("href-windows-hiddify").href = `hiddify://import/${linkFull}`;
-				document.getElementById("href-windows-invisibleman").href = `invxray://subscription/${linkFull}`;
-				document.getElementById("href-windows-clashvergerev").href = `clash://install-config?url${linkFull}&name=` + serviceName;
-				document.getElementById("href-linux-clashvergerev").href = `clash://install-config?url${linkFull}&name=` + serviceName;
+				const setHref = (id, href) => {
+					const element = document.getElementById(id);
+					if (element) {
+						element.href = href;
+					} else {
+						console.warn(`Element with id '${id}' not found`);
+					}
+				};
+				
+				setHref("href-ios-hiddify", `hiddify://import/${linkFull}`);
+				setHref("href-ios-streisand", `streisand://import/${linkFull}`);
+				setHref("href-ios-foxray", `foxray://yiguo.dev/sub/add/?url=${link64}#` + serviceName);
+				setHref("href-ios-v2box", `v2box://install-sub?url=${linkFull}&name=` + serviceName);
+				setHref("href-ios-shadowrocket", `sub://${link64}`);
+				setHref("href-ios-singbox", `sing-box://import-remote-profile?url=${linkFull}#` + serviceName);
+				setHref("href-ios-happ", `happ://add/${linkFull}`);
+				setHref("href-ios-v2raytun", `v2raytun://import/${linkFull}#` + serviceName);
+				setHref("href-android-hiddify", `hiddify://import/${linkFull}`);
+				setHref("href-android-v2rayng", `v2rayng://install-config?url=${linkFull}&name=` + serviceName);
+				setHref("href-android-v2raytun", `v2raytun://import/${linkFull}#` + serviceName);
+				setHref("href-android-cmfa", `clash://install-config?url${linkFull}&name=` + serviceName);
+				setHref("href-android-singbox", `sing-box://import-remote-profile?url=${linkFull}#` + serviceName);
+				setHref("href-android-happ", `happ://add/${linkFull}`);
+				setHref("href-windows-hiddify", `hiddify://import/${linkFull}`);
+				setHref("href-windows-invisibleman", `invxray://subscription/${linkFull}`);
+				setHref("href-windows-clashvergerev", `clash://install-config?url${linkFull}&name=` + serviceName);
+				setHref("href-linux-clashvergerev", `clash://install-config?url${linkFull}&name=` + serviceName);
 				
 				console.log("hello")
 				console.log(linkFull);
 				console.log(`v2raytun://import/${linkFull}#` + serviceName);
 
 				// Happ routing deeplinks
-				document.getElementById("href-ios-happ-RoscomVPN").href = `https://routing.vpn.ru.com/`;
-				document.getElementById("href-ios-happ-ReFilter").href = `happ://routing/onadd/ewogICAgIk5hbWUiOiAiUmU6ZmlsdGVyIiwKICAgICJHbG9iYWxQcm94eSI6ICJmYWxzZSIsCiAgICAiUmVtb3RlRG5zIjogIjEuMS4xLjEiLAogICAgIkRvbWVzdGljRG5zIjogIjc3Ljg4LjguOCIsCiAgICAiR2VvaXB1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9pcC5kYXQiLAogICAgIkdlb3NpdGV1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9zaXRlLmRhdCIsCiAgICAiRG5zSG9zdHMiOiB7fSwKICAgICJEaXJlY3RTaXRlcyI6IFtdLAogICAgIkRpcmVjdElwIjogWwogICAgICAgICIxMC4wLjAuMC84IiwKICAgICAgICAiMTcyLjE2LjAuMC8xMiIsCiAgICAgICAgIjE5Mi4xNjguMC4wLzE2IiwKICAgICAgICAiMTY5LjI1NC4wLjAvMTYiLAogICAgICAgICIyMjQuMC4wLjAvNCIsCiAgICAgICAgIjI1NS4yNTUuMjU1LjI1NSIKICAgIF0sCiAgICAiUHJveHlTaXRlcyI6IFsKICAgICAgICAiZ2Vvc2l0ZTpyZWZpbHRlciIKICAgIF0sCiAgICAiUHJveHlJcCI6IFsKICAgICAgICAiZ2VvaXA6cmVmaWx0ZXIiCiAgICBdLAogICAgIkJsb2NrU2l0ZXMiOiBbXSwKICAgICJCbG9ja0lwIjogW10sCiAgICAiRG9tYWluU3RyYXRlZ3kiOiAiSVBPbkRlbWFuZCIKfQ==`;
-				document.getElementById("href-android-happ-RoscomVPN").href = `https://routing.vpn.ru.com/`;
-				document.getElementById("href-android-happ-ReFilter").href = `happ://routing/onadd/ewogICAgIk5hbWUiOiAiUmU6ZmlsdGVyIiwKICAgICJHbG9iYWxQcm94eSI6ICJmYWxzZSIsCiAgICAiUmVtb3RlRG5zIjogIjEuMS4xLjEiLAogICAgIkRvbWVzdGljRG5zIjogIjc3Ljg4LjguOCIsCiAgICAiR2VvaXB1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9pcC5kYXQiLAogICAgIkdlb3NpdGV1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9zaXRlLmRhdCIsCiAgICAiRG5zSG9zdHMiOiB7fSwKICAgICJEaXJlY3RTaXRlcyI6IFtdLAogICAgIkRpcmVjdElwIjogWwogICAgICAgICIxMC4wLjAuMC84IiwKICAgICAgICAiMTcyLjE2LjAuMC8xMiIsCiAgICAgICAgIjE5Mi4xNjguMC4wLzE2IiwKICAgICAgICAiMTY5LjI1NC4wLjAvMTYiLAogICAgICAgICIyMjQuMC4wLjAvNCIsCiAgICAgICAgIjI1NS4yNTUuMjU1LjI1NSIKICAgIF0sCiAgICAiUHJveHlTaXRlcyI6IFsKICAgICAgICAiZ2Vvc2l0ZTpyZWZpbHRlciIKICAgIF0sCiAgICAiUHJveHlJcCI6IFsKICAgICAgICAiZ2VvaXA6cmVmaWx0ZXIiCiAgICBdLAogICAgIkJsb2NrU2l0ZXMiOiBbXSwKICAgICJCbG9ja0lwIjogW10sCiAgICAiRG9tYWluU3RyYXRlZ3kiOiAiSVBPbkRlbWFuZCIKfQ==`;
+				setHref("href-ios-happ-RoscomVPN", `https://routing.vpn.ru.com/`);
+				setHref("href-ios-happ-ReFilter", `happ://routing/onadd/ewogICAgIk5hbWUiOiAiUmU6ZmlsdGVyIiwKICAgICJHbG9iYWxQcm94eSI6ICJmYWxzZSIsCiAgICAiUmVtb3RlRG5zIjogIjEuMS4xLjEiLAogICAgIkRvbWVzdGljRG5zIjogIjc3Ljg4LjguOCIsCiAgICAiR2VvaXB1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9pcC5kYXQiLAogICAgIkdlb3NpdGV1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9zaXRlLmRhdCIsCiAgICAiRG5zSG9zdHMiOiB7fSwKICAgICJEaXJlY3RTaXRlcyI6IFtdLAogICAgIkRpcmVjdElwIjogWwogICAgICAgICIxMC4wLjAuMC84IiwKICAgICAgICAiMTcyLjE2LjAuMC8xMiIsCiAgICAgICAgIjE5Mi4xNjguMC4wLzE2IiwKICAgICAgICAiMTY5LjI1NC4wLjAvMTYiLAogICAgICAgICIyMjQuMC4wLjAvNCIsCiAgICAgICAgIjI1NS4yNTUuMjU1LjI1NSIKICAgIF0sCiAgICAiUHJveHlTaXRlcyI6IFsKICAgICAgICAiZ2Vvc2l0ZTpyZWZpbHRlciIKICAgIF0sCiAgICAiUHJveHlJcCI6IFsKICAgICAgICAiZ2VvaXA6cmVmaWx0ZXIiCiAgICBdLAogICAgIkJsb2NrU2l0ZXMiOiBbXSwKICAgICJCbG9ja0lwIjogW10sCiAgICAiRG9tYWluU3RyYXRlZ3kiOiAiSVBPbkRlbWFuZCIKfQ==`);
+				setHref("href-android-happ-RoscomVPN", `https://routing.vpn.ru.com/`);
+				setHref("href-android-happ-ReFilter", `happ://routing/onadd/ewogICAgIk5hbWUiOiAiUmU6ZmlsdGVyIiwKICAgICJHbG9iYWxQcm94eSI6ICJmYWxzZSIsCiAgICAiUmVtb3RlRG5zIjogIjEuMS4xLjEiLAogICAgIkRvbWVzdGljRG5zIjogIjc3Ljg4LjguOCIsCiAgICAiR2VvaXB1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9pcC5kYXQiLAogICAgIkdlb3NpdGV1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9zaXRlLmRhdCIsCiAgICAiRG5zSG9zdHMiOiB7fSwKICAgICJEaXJlY3RTaXRlcyI6IFtdLAogICAgIkRpcmVjdElwIjogWwogICAgICAgICIxMC4wLjAuMC84IiwKICAgICAgICAiMTcyLjE2LjAuMC8xMiIsCiAgICAgICAgIjE5Mi4xNjguMC4wLzE2IiwKICAgICAgICAiMTY5LjI1NC4wLjAvMTYiLAogICAgICAgICIyMjQuMC4wLjAvNCIsCiAgICAgICAgIjI1NS4yNTUuMjU1LjI1NSIKICAgIF0sCiAgICAiUHJveHlTaXRlcyI6IFsKICAgICAgICAiZ2Vvc2l0ZTpyZWZpbHRlciIKICAgIF0sCiAgICAiUHJveHlJcCI6IFsKICAgICAgICAiZ2VvaXA6cmVmaWx0ZXIiCiAgICBdLAogICAgIkJsb2NrU2l0ZXMiOiBbXSwKICAgICJCbG9ja0lwIjogW10sCiAgICAiRG9tYWluU3RyYXRlZ3kiOiAiSVBPbkRlbWFuZCIKfQ==`);
 
 				// Change support and donate links below
 				function updateLinksFromUrlParams() {
@@ -633,7 +641,7 @@
 										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHapp" aria-expanded="false" aria-controls="collapseOsIosHapp">
 											<svg class="my-icon"><use href="#v2rayng"></use></svg>
 											<span class="d-block w-100 text-center">
-												V2RayTun59 🔥
+												V2RayTun60 🔥
 											</span>
 										</button>
 									</h2>
